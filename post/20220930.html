@@ -24,8 +24,9 @@
 <meta property="og:description" content="最近在用VMware玩耍。前两天在安装了python3.8和pip后，把虚拟机挂起，在物理机上学习python语法。一段时间后重新打开虚拟机，发现Ubuntu预置的firefox浏览网页报错，显示“安全连接失败”。怀疑是浏览器的问题，Google后各种修改浏览器配置选项也无法解决。于是蠢蠢地准备将重装firefox，发现执行&#96;sudo apt update&#96;时报错，显示域名无法解析。又发现Ubun">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://huigg296.github.io/.%5CVMware%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%5Cerror.png">
+<meta property="og:image" content="https://huigg296.github.io/post/20220930/error.png">
 <meta property="article:published_time" content="2022-09-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-26T16:29:20.976Z">
+<meta property="article:modified_time" content="2024-04-26T16:40:49.485Z">
 <meta property="article:author" content="huigg">
 <meta property="article:tag" content="VMware">
 <meta name="twitter:card" content="summary_large_image">
@@ -291,6 +292,8 @@
 <p>在发现问题后，翻阅了很多博客，不断尝试，最终在<a target="_blank" rel="noopener" href="https://blog.csdn.net/leadingsci/article/details/80873542">这篇博客</a>上找到解决办法。虚拟机终于可以联网了，好耶! Y(^_^)Y</p>
 <h2 id="2-问题"><a href="#2-问题" class="headerlink" title="2.问题"></a>2.问题</h2><p>linux 设置&gt;界面 显示”未发现Wi-Fi适配器“，且 设置&gt;网络 中没有有线连接选项。</p>
 <p><img src="/.%5CVMware%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%5Cerror.png" srcset="/img/loading.gif" lazyload alt="Network Error"></p>
+<img src="/post/20220930/error.png" srcset="/img/loading.gif" lazyload class="" title="This is an example image">
+
 <h2 id="3-解决办法"><a href="#3-解决办法" class="headerlink" title="3.解决办法"></a>3.解决办法</h2><h3 id="尝试一："><a href="#尝试一：" class="headerlink" title="尝试一："></a>尝试一：</h3><p>一开始，我几乎是病急乱投医。直接搜索”VMware 找不到wifi适配器“寻找解决方法。找到一篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/269139018?utm_source=wechat_session&utm_medium=social&utm_oi=1187090292599066624&utm_campaign=shareopn">《万能的VMware虚拟机连接不上的解决方法》</a>，并没有仔细分析问题是否相同，便按现成的解决方法去莽。结果自然是：无论尝试几次，重启几次，网络依然无法连接。我又找了许多其他博客，介绍的解决方案基本大同小异，尝试后依旧无果。</p>
 <h3 id="尝试二："><a href="#尝试二：" class="headerlink" title="尝试二："></a>尝试二：</h3><p>由于安装虚拟机时我几乎一窍不通，所以我记不得当时是如何配置网络环境的。几番回忆下，我找到了那篇<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024580532">Vmware网络配置教程</a>。我的虚拟机是用NAT模式联网的，即与宿主机组成小局域网，通过宿主机访问互联网。这种联网方式下，虽然虚拟机连接的是无线网络，但是设置中显示的是连接有线网络。</p>
 <p>了解了问题大致样貌后，我再去寻找方法，终于找到一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/leadingsci/article/details/80873542">《ubunt18.04虚拟机突然无法上网解决方法》</a>，其中的解决方法大致思路是初始化网路管理器。其提供的解决方法尝试如下：</p>
