@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>CloudCompare和MeshLab的一些方便用法</title>
+    <link href="/post/20240427.html"/>
+    <url>/post/20240427.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="CloudCompare"><a href="#CloudCompare" class="headerlink" title="CloudCompare"></a>CloudCompare</h1><h1 id="MeshLab"><a href="#MeshLab" class="headerlink" title="MeshLab"></a>MeshLab</h1><blockquote><p>The open source system for processing and editing 3D triangular meshes. It provides a set of tools for editing, cleaning, healing, inspecting, rendering, texturing and converting meshes. It offers features for processing raw data produced by 3D digitization tools&#x2F;devices and for preparing models for 3D printing.</p></blockquote><h2 id="三角面片渲染"><a href="#三角面片渲染" class="headerlink" title="三角面片渲染"></a>三角面片渲染</h2><p>MeshLab是操作三角面片模型的工具，常用的三角面片模型文件有<code>.ply</code>文件。<code>.ply</code>文件中记录了三角面片的顶点和面，每个顶点由 x、y 和 z 坐标组成，每个面由顶点索引组成。一个示例的ply文件如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">ply<br><span class="hljs-built_in">format</span> <span class="hljs-built_in">ascii</span> <span class="hljs-number">1.0</span><br>comment Created by ChatGPT<br>element vertex <span class="hljs-number">4</span><br><span class="hljs-built_in">property</span> <span class="hljs-built_in">float</span> x<br><span class="hljs-built_in">property</span> <span class="hljs-built_in">float</span> y<br><span class="hljs-built_in">property</span> <span class="hljs-built_in">float</span> z<br>element face <span class="hljs-number">2</span><br><span class="hljs-built_in">property</span> <span class="hljs-built_in">list</span> uchar <span class="hljs-built_in">int</span> vertex_index<br>end_header<br><span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-number">3</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span><br><span class="hljs-number">3</span> <span class="hljs-number">0</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure><p>在MeshLab中，在导入文件后，可以在渲染窗格中调整渲染样式，输出漂亮的图片。常用的渲染设置为：</p><ul><li><p>三角面片的顶点</p></li><li><p>三角面片的边</p></li><li><p>三角面片的面</p></li></ul><img src="/post/20240427/MeshLab%E6%B8%B2%E6%9F%93%E7%AA%97%E6%A0%BC.png" class="" title="MeshLab渲染窗格"><p>一个渲染得很好看的样式如下。或许后续需要将不同地形元素渲染为不同的颜色，不知该如何实现。</p><img src="/post/20240427/MeshLab%E4%B8%89%E8%A7%92%E9%9D%A2%E7%89%87%E6%B8%B2%E6%9F%93.png" class="" title="MeshLab三角面片渲染"><h2 id="便捷工具"><a href="#便捷工具" class="headerlink" title="便捷工具"></a>便捷工具</h2>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>点云</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>VMware虚拟机网络无法连接问题解决办法</title>
     <link href="/post/20220930.html"/>
     <url>/post/20220930.html</url>
@@ -14,7 +35,7 @@
     
     <tags>
       
-      <tag>VMware</tag>
+      <tag>虚拟机</tag>
       
     </tags>
     
