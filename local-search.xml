@@ -4,11 +4,32 @@
   
   
   <entry>
+    <title>PhotoShop新手上路</title>
+    <link href="/post/2024050421.html"/>
+    <url>/post/2024050421.html</url>
+    
+    <content type="html"><![CDATA[<p>此前，我没有PhotoShop设计经验，有印象的只有高考完暑假后无聊跟着PhotoShop官方教程做了一些基础操作，我大致知道它提供了哪些功能，是怎样的工作逻辑，然而具体怎么操作早就忘记了。最近正在捣腾痛车设计，所以不得不以完全小白的状态入门摸索这款软件。</p><p>刚开始操作确实很不适应，连移动图像都不知道该怎么做，狂点鼠标也没反应。但无奈没有时间慢慢学习，只能不懂就google。下面使用PhotoShop 2023，记录简单的上手操作。</p><h1 id="概念与基本操作"><a href="#概念与基本操作" class="headerlink" title="概念与基本操作"></a>概念与基本操作</h1><h2 id="画布"><a href="#画布" class="headerlink" title="画布"></a>画布</h2><p><code>画布</code>是你能进行操作的区域，就像是一张实际的画纸一样，所有图像只能在画纸上展示。</p><p><code>画布</code>的三个属性最为关键：<code>大小</code>，<code>颜色模式</code>，<code>分辨率</code>。</p><ul><li><p><code>大小</code>： 最终图像总会以某种形式打印出来，因此需要指定打印的样式</p></li><li><p><code>颜色模式</code>： 不同的颜色模式有不同的优势，如<code>CMYK</code>是打印用的颜色模式，使用该颜色模式基本可以“所绘即所得”。</p></li><li><p><code>分辨率</code>： 物理距离对应的像素的数量，越高图像越清晰</p></li></ul><h2 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h2><p><code>图层</code>是PhotoShop的基础图像编排逻辑，在PowerPoint软件中操作过也基本能理解，<code>图层</code>的上下级关系等等。</p><ul><li><p>拷贝：光标选中<code>图层</code>，<code>Ctrl-c</code> + <code>Ctrl-v</code> 即可。如果此时图像中有<code>选区</code>, 则只会拷贝该选区中的元素</p></li><li><p>重命名：双击图层的名字进行重命名</p></li><li><p>移动、旋转、缩放：<code>编辑&gt;变换</code> or <code>Ctrl-t</code></p></li></ul><h1 id="实用工具"><a href="#实用工具" class="headerlink" title="实用工具"></a>实用工具</h1><h2 id="编辑历史记录"><a href="#编辑历史记录" class="headerlink" title="编辑历史记录"></a>编辑历史记录</h2><p>在<code>窗口</code>中打开<code>历史记录</code>，可以直观地看到自己的操作，方便撤回与重做。</p><h2 id="导航器"><a href="#导航器" class="headerlink" title="导航器"></a>导航器</h2><p>在<code>窗口</code>中打开<code>导航器</code>，可以看到当前视角在整体图像的位置，很舒服。</p><h2 id="标尺"><a href="#标尺" class="headerlink" title="标尺"></a>标尺</h2><p>在<code>视图</code>中打开<code>标尺</code>，或者按<code>Ctrl+r</code>，可以看到量画布的标尺，从标尺上拖动鼠标，可以绘制辅助线，非常实用。</p><h1 id="功能导向"><a href="#功能导向" class="headerlink" title="功能导向"></a>功能导向</h1><h2 id="抠图"><a href="#抠图" class="headerlink" title="抠图"></a>抠图</h2><p>我们常常需要从网络获取素材，并在素材中抠出我们想要的部分，把不想要的部分弄成透明，这就是抠图。抠图一般是件伤时费神的工作，尤其是画面主体比较复杂（比如毛发）或者背景比较复杂的时候。在PhotoShop中有多种抠图的方法，分别适用于不同的场景。</p><h3 id="1-魔术橡皮擦"><a href="#1-魔术橡皮擦" class="headerlink" title="1. 魔术橡皮擦"></a>1. 魔术橡皮擦</h3><p><code>魔术橡皮擦</code>的原理是：消除点击区域相同颜色的像素。因此，如果背景是纯色的，用它可以快速地去除背景。但是如果画面主体比较复杂（比如毛发很多），在主体的边缘由于颜色的混杂，可能会残留一些背景，这时依然需要慢慢用<code>橡皮擦</code>工具修。</p><h3 id="2-磁性套索工具"><a href="#2-磁性套索工具" class="headerlink" title="2. 磁性套索工具"></a>2. 磁性套索工具</h3><p><code>磁性套索工具</code>会自动吸附检测到的边缘。在主体与背景对比度较高，且不太复杂时，用起来还是很舒服的，只需用鼠标慢慢绕一圈，然后拷贝选区即可。如果画面主体比较复杂（比如毛发很多），那简直就是噩梦。</p><h2 id="3-选择主体"><a href="#3-选择主体" class="headerlink" title="3. 选择主体"></a>3. 选择主体</h2><p>点击<code>选择&gt;主体</code>，PhotoShop遍会自动识别画面的主体，并生成选区。但是往往只能适用于图像很简单的情况。</p><h2 id="边缘发光"><a href="#边缘发光" class="headerlink" title="边缘发光"></a>边缘发光</h2><p>提到这个，其实我们是在谈论如何设置<code>图层样式</code>。边缘发光只是<code>图层样式</code>中的一种。右键当前<code>图层</code>，点击<code>混合选项</code>，可以看到PhotoShop提供了多种样式。这里想做<code>外发光</code>,于是就在<code>外发光</code>选项卡下调各种参数，主要把<code>结构</code>和<code>图素</code>的参数整好就行，<code>品质</code>参数不知道干什么用的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>PS</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>痛车设计从入门到放弃</title>
     <link href="/post/2024050420.html"/>
     <url>/post/2024050420.html</url>
     
-    <content type="html"><![CDATA[<p>课题组里的师兄花了两年整了一套通用的实验机器人，马上就要到量产阶段了。适逢我刚正式加入课题组，同时感受到本人浓厚的二次元气息， 便把设计第一辆机器人涂装的任务交给了我。（虽然我很想吐槽这个决定是有多么抽象）</p><p>其实一开始我是拒绝的.jpg。直到……..我看完了2023魔法未来演唱会，主题曲《Hero》既毒到让我连刷好多遍，又让我每遍都深受感动。虽然只是录像，但现场的气氛着实让我倍受感染。</p><blockquote><p>ハッピーバースデー, 親愛なるヒーローへ 🎶</p></blockquote><p>而且，miku这身装束，虽然一反平时甜美的感觉，甚至初看觉得奇怪。但是在《HERO》舞台表现太亮眼了，现在我的感想只剩下：实在太飒啦啊啊啊！！！[图片来源于<a href="https://magicalmirai.com/2023/index_tw.html">2023魔法未来官方视觉图</a>]</p><img src="/post/2024050420/visual_miku.jpg" class="" title="2023魔法未来视觉图"><p>于是乎，一个零设计基础的小白持枪上阵了。</p><h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h1 id="痛车设计之路"><a href="#痛车设计之路" class="headerlink" title="痛车设计之路"></a>痛车设计之路</h1><h2 id="1-确定尺寸图"><a href="#1-确定尺寸图" class="headerlink" title="1. 确定尺寸图"></a>1. 确定尺寸图</h2><h2 id="2-获取素材"><a href="#2-获取素材" class="headerlink" title="2. 获取素材"></a>2. 获取素材</h2><h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    <content type="html"><![CDATA[<p>课题组里的师兄花了两年整了一套通用的实验机器人，马上就要到量产阶段了。适逢我刚正式加入课题组，同时感受到本人浓厚的二次元气息， 便把设计第一辆机器人涂装的任务交给了我。（虽然我很想吐槽这个决定是有多么抽象）</p><p>其实一开始我是拒绝的.jpg。直到……..我看完了2023魔法未来演唱会，主题曲《Hero》既毒到让我连刷好多遍，又让我每遍都深受感动。虽然只是录像，但现场的气氛着实让我倍受感染。</p><blockquote><p>ハッピーバースデー, 親愛なるヒーローへ 🎶</p><p>祝你生日快乐，我亲爱的英雄 🎶</p></blockquote><p>而且，miku这身装束，虽然一反平时甜美的感觉，甚至初看觉得奇怪。但是在《HERO》舞台表现太亮眼了，现在我的感想只剩下：实在太飒啦啊啊啊！！！[图片来源于<a href="https://magicalmirai.com/2023/index_tw.html">2023魔法未来官方视觉图</a>]</p><img src="/post/2024050420/visual_miku.jpg" class="" title="2023魔法未来视觉图"><p>于是乎，一个零设计基础的小白持枪上阵了。</p><h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h2 id="究竟什么是痛车"><a href="#究竟什么是痛车" class="headerlink" title="究竟什么是痛车"></a>究竟什么是痛车</h2><h2 id="当我们说要做痛车，我们究竟要做什么"><a href="#当我们说要做痛车，我们究竟要做什么" class="headerlink" title="当我们说要做痛车，我们究竟要做什么"></a>当我们说要做痛车，我们究竟要做什么</h2><h2 id="不需要成为专业的设计师也能做痛车，最重要的是热爱"><a href="#不需要成为专业的设计师也能做痛车，最重要的是热爱" class="headerlink" title="不需要成为专业的设计师也能做痛车，最重要的是热爱"></a>不需要成为专业的设计师也能做痛车，最重要的是热爱</h2><h1 id="痛车设计之路"><a href="#痛车设计之路" class="headerlink" title="痛车设计之路"></a>痛车设计之路</h1><h2 id="1-确定尺寸图"><a href="#1-确定尺寸图" class="headerlink" title="1. 确定尺寸图"></a>1. 确定尺寸图</h2><h2 id="2-获取素材"><a href="#2-获取素材" class="headerlink" title="2. 获取素材"></a>2. 获取素材</h2><h2 id="3-找到最养眼的设计"><a href="#3-找到最养眼的设计" class="headerlink" title="3. 找到最养眼的设计"></a>3. 找到最养眼的设计</h2><h2 id="4-交付打印"><a href="#4-交付打印" class="headerlink" title="4. 交付打印"></a>4. 交付打印</h2><h2 id="5-粘贴"><a href="#5-粘贴" class="headerlink" title="5. 粘贴"></a>5. 粘贴</h2><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2>]]></content>
     
     
     
