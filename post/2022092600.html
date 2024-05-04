@@ -19,19 +19,19 @@
     <meta name="description" content="近来笔者在浅尝python网络爬虫，这是笔者写的第一个爬虫程序，仅仅是一步步按参考书的教程写成。写这篇博客仅为备忘用，没有什么技术含量，如果能对你有所帮助，那也再好不过。我们以爬取酷狗歌曲TOP500为例，获取网页上显示的TOP500的歌曲名、歌手、歌曲时长，并将结果输出到一个Excel表格中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用Python爬取网络数据到Excel">
-<meta property="og:url" content="https://huigg296.github.io/post/20220926.html">
+<meta property="og:url" content="https://huigg296.github.io/post/2022092600.html">
 <meta property="og:site_name" content="huigg的个人博客">
 <meta property="og:description" content="近来笔者在浅尝python网络爬虫，这是笔者写的第一个爬虫程序，仅仅是一步步按参考书的教程写成。写这篇博客仅为备忘用，没有什么技术含量，如果能对你有所帮助，那也再好不过。我们以爬取酷狗歌曲TOP500为例，获取网页上显示的TOP500的歌曲名、歌手、歌曲时长，并将结果输出到一个Excel表格中。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://huigg296.github.io/post/20220926/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png">
-<meta property="og:image" content="https://huigg296.github.io/post/20220926/%E5%AD%97%E5%85%B8%E8%BE%93%E5%87%BA%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://huigg296.github.io/post/2022092600/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://huigg296.github.io/post/2022092600/%E5%AD%97%E5%85%B8%E8%BE%93%E5%87%BA%E6%88%90%E5%8A%9F.png">
 <meta property="article:published_time" content="2022-09-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2024-04-26T16:57:40.748Z">
 <meta property="article:author" content="huigg">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://huigg296.github.io/post/20220926/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png">
+<meta name="twitter:image" content="https://huigg296.github.io/post/2022092600/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png">
   
   
   
@@ -345,9 +345,9 @@
 </ol>
 <h3 id="6-2-最终代码（仅供参考）"><a href="#6-2-最终代码（仅供参考）" class="headerlink" title="6.2 最终代码（仅供参考）"></a>6.2 最终代码（仅供参考）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 2022.9.28</span><br><span class="hljs-comment"># 根据参考书上样例爬取酷狗Top500的歌手、歌名和歌曲时长等信息</span><br><br><span class="hljs-comment"># 必要库调用</span><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><span class="hljs-keyword">from</span> openpyxl <span class="hljs-keyword">import</span> Workbook<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-comment"># 伪装浏览器请求头</span><br>headers = &#123;<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0Safari/537.36&quot;</span><br>&#125;<br>workbook = Workbook()<br>sheet = workbook.active<br>columns = [<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-string">&#x27;B&#x27;</span>,<span class="hljs-string">&#x27;C&#x27;</span>,<span class="hljs-string">&#x27;D&#x27;</span>]<br>row = <span class="hljs-number">0</span><br><br><br><span class="hljs-comment"># 定义获取信息的函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_info</span>(<span class="hljs-params">url</span>):<br>    <span class="hljs-comment"># 爬取网页</span><br>    wb_data = requests.get(url, headers=headers)<br>    soup = BeautifulSoup(wb_data.text, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br>    <span class="hljs-comment"># 提取信息</span><br>    ranks = soup.select(<span class="hljs-string">&#x27;#rankWrap &gt; div.pc_temp_songlist &gt; ul &gt; li &gt; span.pc_temp_num&#x27;</span>)<br>    titles = soup.select(<span class="hljs-string">&#x27;#rankWrap &gt; div.pc_temp_songlist &gt; ul &gt; li &gt; a&#x27;</span>)<br>    times = soup.select(<span class="hljs-string">&#x27;#rankWrap &gt; div.pc_temp_songlist &gt; ul &gt; li &gt; span.pc_temp_tips_r &gt; span&#x27;</span>)<br><br>    <span class="hljs-comment"># 调整输出</span><br>    <span class="hljs-keyword">for</span> rank, title, time <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(ranks, titles, times):<br>        data1 = rank.get_text().strip()<br>        data2 =  title.get_text(strip=<span class="hljs-literal">True</span>).split(<span class="hljs-string">&#x27;-&#x27;</span>)[<span class="hljs-number">1</span>]<br>        data3 = title.get_text(strip=<span class="hljs-literal">True</span>).split(<span class="hljs-string">&#x27;-&#x27;</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 发现get_text()后，歌手和歌名顺序颠倒，原因未知</span><br>        data4 = time.get_text().strip()<br>        listemp = [data1,data2,data3,data4]<br>        data = &#123;<br>            <span class="hljs-string">&#x27;rank&#x27;</span>: data1,<br>            <span class="hljs-string">&#x27;singer&#x27;</span>: data2,<br>            <span class="hljs-string">&#x27;song&#x27;</span>: data3,<br>            <span class="hljs-string">&#x27;time&#x27;</span>: data4<br>        &#125;<br>        <span class="hljs-built_in">print</span>(data)<br>        <span class="hljs-comment">#写入Excel</span><br>        <span class="hljs-keyword">global</span> row<br>        row += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> col, temp <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(columns, listemp):<br>            sheet[col+<span class="hljs-built_in">str</span>(row)].value = temp<br><br><br><span class="hljs-comment"># 程序主入口</span><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    urls = [<span class="hljs-string">&#x27;https://www.kugou.com/yy/rank/home/&#123;&#125;-8888.html&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">str</span>(i))<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">24</span>)]<br>    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> urls:<br>        get_info(url)<br>        time.sleep(<span class="hljs-number">0.5</span>)<br>    workbook.save(<span class="hljs-string">&#x27;songs_TOP500.xlsx&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<h3 id="6-3-运行结果"><a href="#6-3-运行结果" class="headerlink" title="6.3 运行结果"></a>6.3 运行结果</h3><img src="/post/20220926/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload class="" title="Excel导入成功">
+<h3 id="6-3-运行结果"><a href="#6-3-运行结果" class="headerlink" title="6.3 运行结果"></a>6.3 运行结果</h3><img src="/post/2022092600/Excel%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload class="" title="Excel导入成功">
 
-<img src="/post/20220926/%E5%AD%97%E5%85%B8%E8%BE%93%E5%87%BA%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload class="" title="字典输出成功">
+<img src="/post/2022092600/%E5%AD%97%E5%85%B8%E8%BE%93%E5%87%BA%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload class="" title="字典输出成功">
 
 <h2 id="7-参考文献"><a href="#7-参考文献" class="headerlink" title="7. 参考文献"></a>7. 参考文献</h2><p>[1]<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27180929/">罗攀,蒋仟.《从零开始学python网络爬虫》.机械工业出版社.2017：1-44</a></p>
 <p>[2]<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1977605177f9">Python 爬虫并且将数据写入Excel</a></p>
@@ -379,7 +379,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>用Python爬取网络数据到Excel</div>
-      <div>https://huigg296.github.io/post/20220926.html</div>
+      <div>https://huigg296.github.io/post/2022092600.html</div>
     </div>
     <div class="license-meta">
       
@@ -423,7 +423,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/20220930.html" title="VMware虚拟机网络无法连接问题解决办法">
+                      <a href="/post/2022093000.html" title="VMware虚拟机网络无法连接问题解决办法">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">VMware虚拟机网络无法连接问题解决办法</span>
                         <span class="visible-mobile">上一篇</span>

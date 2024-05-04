@@ -16,24 +16,22 @@
   <meta name="author" content="huigg">
   <meta name="keywords" content="technology,research,robot,math">
   
-    <meta name="description" content="最近在用VMware玩耍。前两天在安装了python3.8和pip后，把虚拟机挂起，在物理机上学习python语法。一段时间后重新打开虚拟机，发现Ubuntu预置的firefox浏览网页报错，显示“安全连接失败”。怀疑是浏览器的问题，Google后各种修改浏览器配置选项也无法解决。于是蠢蠢地准备将重装firefox，发现执行&#96;sudo apt update&#96;时报错，显示域名无法解析。又发现Ubun">
+    <meta name="description" content="环境搭建 安装npm  安装hexo  托管github page   主题美化 主题是什么  Fluid主题与相关配置   日常使用 如何发布一篇博客  博客源文件存档  常用语法与规则   细节问题 文章url的好看设置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VMware虚拟机网络无法连接问题解决办法">
-<meta property="og:url" content="https://huigg296.github.io/post/20220930.html">
+<meta property="og:title" content="hexo blog从0到1">
+<meta property="og:url" content="https://huigg296.github.io/post/2024050419.html">
 <meta property="og:site_name" content="huigg的个人博客">
-<meta property="og:description" content="最近在用VMware玩耍。前两天在安装了python3.8和pip后，把虚拟机挂起，在物理机上学习python语法。一段时间后重新打开虚拟机，发现Ubuntu预置的firefox浏览网页报错，显示“安全连接失败”。怀疑是浏览器的问题，Google后各种修改浏览器配置选项也无法解决。于是蠢蠢地准备将重装firefox，发现执行&#96;sudo apt update&#96;时报错，显示域名无法解析。又发现Ubun">
+<meta property="og:description" content="环境搭建 安装npm  安装hexo  托管github page   主题美化 主题是什么  Fluid主题与相关配置   日常使用 如何发布一篇博客  博客源文件存档  常用语法与规则   细节问题 文章url的好看设置">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://huigg296.github.io/post/20220930/error.png">
-<meta property="article:published_time" content="2022-09-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-27T05:18:36.570Z">
+<meta property="article:published_time" content="2024-05-04T11:56:02.000Z">
+<meta property="article:modified_time" content="2024-05-04T12:23:58.764Z">
 <meta property="article:author" content="huigg">
-<meta property="article:tag" content="虚拟机">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://huigg296.github.io/post/20220930/error.png">
   
   
   
-  <title>VMware虚拟机网络无法连接问题解决办法 - huigg的个人博客</title>
+  <title>hexo blog从0到1 - huigg的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="VMware虚拟机网络无法连接问题解决办法"></span>
+            <span id="subtitle" data-typed-text="hexo blog从0到1"></span>
           
         </div>
 
@@ -222,8 +220,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-30 00:00" pubdate>
-          2022年9月30日 凌晨
+        <time datetime="2024-05-04 19:56" pubdate>
+          2024年5月4日 晚上
         </time>
       </span>
     
@@ -234,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          847 字
+          64 字
         
       </span>
     
@@ -245,7 +243,7 @@
         
         
         
-          8 分钟
+          1 分钟
         
       </span>
     
@@ -282,30 +280,36 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">VMware虚拟机网络无法连接问题解决办法</h1>
+            <h1 id="seo-header">hexo blog从0到1</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="1-经过"><a href="#1-经过" class="headerlink" title="1.经过"></a>1.经过</h2><p>最近在用VMware玩耍。前两天在安装了python3.8和pip后，把虚拟机挂起，在物理机上学习python语法。一段时间后重新打开虚拟机，发现Ubuntu预置的firefox浏览网页报错，显示“安全连接失败”。怀疑是浏览器的问题，Google后各种修改浏览器配置选项也无法解决。于是蠢蠢地准备将重装firefox，发现执行<code>sudo apt update</code>时报错，显示域名无法解析。又发现Ubuntu上chrome也无法浏览网页，这时才检查发现是虚拟机网络的问题。</p>
-<p>在发现问题后，翻阅了很多博客，不断尝试，最终在<a target="_blank" rel="noopener" href="https://blog.csdn.net/leadingsci/article/details/80873542">这篇博客</a>上找到解决办法。虚拟机终于可以联网了，好耶! Y(^_^)Y</p>
-<h2 id="2-问题"><a href="#2-问题" class="headerlink" title="2.问题"></a>2.问题</h2><p>linux 设置&gt;界面 显示”未发现Wi-Fi适配器“，且 设置&gt;网络 中没有有线连接选项。</p>
-<img src="/post/20220930/error.png" srcset="/img/loading.gif" lazyload class="" title="Network Error">
-
-<h2 id="3-解决办法"><a href="#3-解决办法" class="headerlink" title="3.解决办法"></a>3.解决办法</h2><h3 id="尝试一："><a href="#尝试一：" class="headerlink" title="尝试一："></a>尝试一：</h3><p>一开始，我几乎是病急乱投医。直接搜索”VMware 找不到wifi适配器“寻找解决方法。找到一篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/269139018?utm_source=wechat_session&utm_medium=social&utm_oi=1187090292599066624&utm_campaign=shareopn">《万能的VMware虚拟机连接不上的解决方法》</a>，并没有仔细分析问题是否相同，便按现成的解决方法去莽。结果自然是：无论尝试几次，重启几次，网络依然无法连接。我又找了许多其他博客，介绍的解决方案基本大同小异，尝试后依旧无果。</p>
-<h3 id="尝试二："><a href="#尝试二：" class="headerlink" title="尝试二："></a>尝试二：</h3><p>由于安装虚拟机时我几乎一窍不通，所以我记不得当时是如何配置网络环境的。几番回忆下，我找到了那篇<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024580532">Vmware网络配置教程</a>。我的虚拟机是用NAT模式联网的，即与宿主机组成小局域网，通过宿主机访问互联网。这种联网方式下，虽然虚拟机连接的是无线网络，但是设置中显示的是连接有线网络。</p>
-<p>了解了问题大致样貌后，我再去寻找方法，终于找到一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/leadingsci/article/details/80873542">《ubunt18.04虚拟机突然无法上网解决方法》</a>，其中的解决方法大致思路是初始化网路管理器。其提供的解决方法尝试如下：</p>
-<p>1.将模式调整为”主机模式“</p>
-<p>2.输入以下代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo service network-manager stop<br><br>sudo rm -i /var/lib/NetworkManager/NetworkManager.state<br><br>sudo service network-manager start<br></code></pre></td></tr></table></figure>
-
-<p>命令行输入以上短短三行命令后，问题就基本解决了。虚拟机重启后，终于连上了网络！</p>
-<h2 id="4-心得"><a href="#4-心得" class="headerlink" title="4.心得"></a>4.心得</h2><p>虽然问题解决了，但问题发生的具体原因依然不得而知，而且我并不完全了解解决方案的原理。下次发生问题时，可能还要再花一晚上功夫寻找解决方法。但这些付出还是值得的，我收获了很多经验，最后解决问题时的愉悦心情也是很棒的体验。</p>
-<p>希望随着自己不断学习、实践，将来能对这个问题有更好的理解。加油吧。</p>
-<h2 id="5-参考文献"><a href="#5-参考文献" class="headerlink" title="5.参考文献"></a>5.参考文献</h2><p>&lt;1&gt; <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Courage129/p/14287850.html">《NAT模式、路由模式、桥接模式的区别 - 等不到的口琴 - 博客园》</a></p>
-<p>&lt;2&gt; <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024580532">《VmWare网络配置，只此一篇就够了》</a></p>
-<p>&lt;3&gt; <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/269139018?utm_source=wechat_session&utm_medium=social&utm_oi=1187090292599066624&utm_campaign=shareopn">《万能的VMware虚拟机连接不上的解决方法》</a></p>
-<p>&lt;4&gt; <a target="_blank" rel="noopener" href="https://blog.csdn.net/leadingsci/article/details/80873542">0058-【linux系统】-ubunt18.04虚拟机突然无法上网解决方法_伍泳彰的博客-CSDN博客</a></p>
+                <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><ul>
+<li><p>安装npm</p>
+</li>
+<li><p>安装hexo</p>
+</li>
+<li><p>托管github page</p>
+</li>
+</ul>
+<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><ul>
+<li><p>主题是什么</p>
+</li>
+<li><p>Fluid主题与相关配置</p>
+</li>
+</ul>
+<h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><ul>
+<li><p>如何发布一篇博客</p>
+</li>
+<li><p>博客源文件存档</p>
+</li>
+<li><p>常用语法与规则</p>
+</li>
+</ul>
+<h2 id="细节问题"><a href="#细节问题" class="headerlink" title="细节问题"></a>细节问题</h2><ul>
+<li>文章url的好看设置</li>
+</ul>
 
                 
               </div>
@@ -318,7 +322,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="print-no-link">#虚拟机</a>
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
       
     </div>
   
@@ -330,8 +334,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>VMware虚拟机网络无法连接问题解决办法</div>
-      <div>https://huigg296.github.io/post/20220930.html</div>
+      <div>hexo blog从0到1</div>
+      <div>https://huigg296.github.io/post/2024050419.html</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +347,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月30日</div>
+          <div>2024年5月4日</div>
         </div>
       
       
@@ -375,9 +379,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/20240427.html" title="CloudCompare和MeshLab的一些方便用法">
+                      <a href="/post/2024050420.html" title="痛车设计从入门到放弃">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CloudCompare和MeshLab的一些方便用法</span>
+                        <span class="hidden-mobile">痛车设计从入门到放弃</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -385,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/20220926.html" title="用Python爬取网络数据到Excel">
-                        <span class="hidden-mobile">用Python爬取网络数据到Excel</span>
+                      <a href="/post/2024042713.html" title="CloudCompare和MeshLab的一些方便用法">
+                        <span class="hidden-mobile">CloudCompare和MeshLab的一些方便用法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
